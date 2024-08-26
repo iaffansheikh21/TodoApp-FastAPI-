@@ -11,6 +11,7 @@ fastapi = "^0.112.1"
 sqlmodel = "^0.0.21"
 uvicorn = {extras = ["standard"], version = "^0.30.6"}
 mypy = "^1.11.2"
+psycopg2 = "^2.9.9"
 
 [tool.poetry.scripts]
 dev= "todos.main:start"
