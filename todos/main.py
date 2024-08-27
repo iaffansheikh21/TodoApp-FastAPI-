@@ -78,19 +78,25 @@
 from fastapi import FastAPI, Query
 import uvicorn
 from sqlmodel import SQLModel, Session, select, Field, create_engine
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
-connectionString = 'postgresql://postgres.ehzeojlysuxtslmbgvmd:FastApi_Practice@aws-0-ap-south-1.pooler.supabase.com:6543/postgres'
-connection = create_engine(connectionString)
 
-class Students(SQLModel, table=True):
+# class Students(SQLModel, table=True):
+#     id: int = Field(default=None, primary_key=True)
+#     name: str
+#     age: int
+#     is_active: bool
+
+class Todos(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
-    name: str
-    age: int
-    is_active: bool
-
-SQLModel.metadata.create_all(connection)
-
+    title: str
+    description: str
+    is_completed: bool
+    
+    
 # @app.get("/getStudents")
 # def get_students(name: str = Query(...)):
 #     with Session(connection) as session:
