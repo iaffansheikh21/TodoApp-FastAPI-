@@ -95,6 +95,7 @@ class Todos(SQLModel, table=True):
     title: str
     description: str
     is_completed: bool
+    is_assigned: bool
     
     
 # @app.get("/getStudents")
